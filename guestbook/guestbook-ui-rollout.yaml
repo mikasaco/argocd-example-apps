@@ -9,9 +9,11 @@ spec:
       app: guestbook-ui
   strategy:
     canary:
+      canaryService: guestbook-ui-canary
+      stableService: guestbook-ui-stable
       steps:
       - setWeight: 20       
-      - pause: {duration: 60}
+      - pause: {}
       - setWeight: 40       
       - pause: {duration: 10}
       - setWeight: 100      

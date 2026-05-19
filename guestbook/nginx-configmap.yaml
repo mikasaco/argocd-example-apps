@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+    worker_processes auto;  # 自动匹配 CPU 核心数
+    events {
+        worker_connections 65535;  # 提升单进程并发连接数
+        use epoll;  # Linux 下高效 I/O 多路复用模型
+        multi_accept on;  # 允许一次接受多个新连接
+    }
+    http {
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+        
+        # 开启高效文件传输与 TCP 优化
+        sendfile on;
+        tcp_nopush on;
+        tcp_nodelay on;
+        keepalive_timeout 65;
+        
+        server {
+            listen 80;
+            server_name localhost;
+            location / {
+                root /usr/share/nginx/html;
+                index index.html index.htm;
+            }
+        }
+    }

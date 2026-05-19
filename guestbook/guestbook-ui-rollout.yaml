@@ -1,1 +1,27 @@
-
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: guestbook-rollout
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: guestbook-ui
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20       
+      - pause: {duration: 10}
+      - setWeight: 40       
+      - pause: {duration: 10}
+      - setWeight: 100      
+  template:
+    metadata:
+      labels:
+        app: guestbook-ui
+    spec:
+      containers:
+      - name: guestbook-ui
+        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/gcr.io/google-samples/gb-frontend:v5
+        ports:
+        - containerPort: 80

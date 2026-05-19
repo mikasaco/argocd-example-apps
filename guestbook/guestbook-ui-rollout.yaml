@@ -24,6 +24,6 @@ spec:
     spec:
       containers:
       - name: guestbook-ui
-        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/argoproj/rollouts-demo:green
+        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/argoproj/rollouts-demo:blue
         ports:
         - containerPort: 80

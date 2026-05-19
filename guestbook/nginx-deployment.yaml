@@ -8,7 +8,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx 
+      app: nginx
   template:
     metadata:
       labels:
@@ -19,3 +19,12 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+        
+        volumeMounts:
+        - name: nginx-config-volume
+          mountPath: /etc/nginx/nginx.conf  # 覆盖容器内默认的 nginx.conf
+          subPath: nginx.conf               # 指定挂载 ConfigMap 中的具体键名
+      volumes:
+      - name: nginx-config-volume
+        configMap:
+          name: nginx-config                # 对应上面创建的 ConfigMap 名称

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: guestbook-rollout
+  name: guestbook-ui
 spec:
   replicas: 5
   selector:

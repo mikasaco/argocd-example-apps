@@ -24,6 +24,6 @@ spec:
     spec:
       containers:
       - name: guestbook-ui
-        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/kennethreitz/httpbin:latest
+        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/gcr.io/google-samples/gb-frontend:v5
         ports:
         - containerPort: 80

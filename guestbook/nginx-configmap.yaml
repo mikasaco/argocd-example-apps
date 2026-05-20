@@ -17,9 +17,9 @@ data:
         # 核心配置：使用 map 指令根据请求头 $http_x_env 的值映射到不同的后端服务名
         # Nginx 会自动将 Header 中的短横线(-)转换为下划线(_)，且变量名统一为小写
         map $http_x_env $backend_service {
-            default   "guestbook-gray";  # 默认转发到 gray 环境
-            "prd"     "guestbook-prd";   # 当 x_env=prd 时，转发到 prd 环境
-            "gray"    "guestbook-gray";  # 当 x_env=gray 时，转发到 gray 环境
+            default   "guestbook-stable";  # 默认转发到 gray 环境
+            "prd"     "guestbook-stable";   # 当 x_env=prd 时，转发到 prd 环境
+            "gray"    "guestbook-canary";  # 当 x_env=gray 时，转发到 gray 环境
         }
 
         server {

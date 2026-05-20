@@ -26,6 +26,9 @@ data:
             listen 80;
             server_name localhost;
 
+            resolver 10.1.0.3 valid=5s;
+            resolver_timeout 5s;
+
             location / {
                 # 动态代理：将请求转发给 map 映射出的后端 Service
                 # 注意：在 K8s 中，Service 可以通过其名称（DNS）直接访问

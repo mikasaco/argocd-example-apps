@@ -30,6 +30,9 @@ data:
             resolver_timeout 5s;
 
             location / {
+
+                return 200 "Backend Service is: [$backend_service]";
+
                 # 动态代理：将请求转发给 map 映射出的后端 Service
                 # 注意：在 K8s 中，Service 可以通过其名称（DNS）直接访问
                 proxy_pass http://$backend_service;

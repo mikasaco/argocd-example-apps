@@ -35,7 +35,8 @@ data:
 
                 # 动态代理：将请求转发给 map 映射出的后端 Service
                 # 注意：在 K8s 中，Service 可以通过其名称（DNS）直接访问
-                proxy_pass http://$backend_service;
+                #proxy_pass http://$backend_service;
+                proxy_pass http://guestbook-stable:5678;
                 
                 # 传递必要的请求头信息给后端
                 proxy_set_header Host $host;

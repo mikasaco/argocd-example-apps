@@ -23,7 +23,7 @@ data:
         }
 
         server {
-            listen 8123;
+            listen 80;
             server_name localhost;
 
             location / {

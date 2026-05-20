@@ -24,6 +24,11 @@ spec:
     spec:
       containers:
       - name: guestbook-ui
-        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/argoproj/rollouts-demo:green
+        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/hashicorp/http-echo:1.0
+        args:
+          - "-text=$(POD_TEXT)"  
+        env:
+        - name: POD_TEXT         
+          value: "hello-world"
         ports:
-        - containerPort: 8080
+        - containerPort: 5678

@@ -30,6 +30,6 @@ spec:
           - "-text=$(POD_TEXT)"  
         env:
         - name: POD_TEXT         
-          value: "hello-world-blue"
+          value: "hello-world-green"
         ports:
         - containerPort: 5678

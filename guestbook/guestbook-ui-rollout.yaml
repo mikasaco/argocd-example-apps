@@ -24,8 +24,8 @@ spec:
     spec:
       containers:
       - name: guestbook-ui
-        # image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/hashicorp/http-echo:1.0
-        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/argoproj/rollouts-demo:green
+        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/hashicorp/http-echo:1.0
+        # image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/argoproj/rollouts-demo:green
         args:
           - "-text=$(POD_TEXT)"  
         env:
